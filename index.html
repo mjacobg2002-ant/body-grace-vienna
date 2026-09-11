@@ -88,18 +88,19 @@
   .paula .photo .tag span{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--clay);font-weight:700}
   .paula .pull{font-family:var(--serif);font-style:italic;font-size:1.35rem;color:var(--blue-deep);margin-top:22px}
 
-  /* Slideshow */
-  .slideshow{position:relative;max-width:960px;margin:44px auto 0;aspect-ratio:16/10;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);background:#243138}
-  .slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity 1.1s ease}
-  .slide.is-active{opacity:1;visibility:visible}
-  .slide img{width:100%;height:100%;object-fit:cover}
-  .slide figcaption{position:absolute;left:0;right:0;bottom:0;padding:56px 26px 24px;background:linear-gradient(180deg,#0000,#243138cc);color:#fff;font-family:var(--serif);font-style:italic;font-size:1.15rem}
-  .slide-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:46px;height:46px;border-radius:50%;border:none;background:#ffffffe0;color:var(--blue-deep);cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px -6px #0006}
-  .slide-btn:hover{background:#fff}
-  .slide-btn.prev{left:16px}.slide-btn.next{right:16px}
-  .dots{display:flex;gap:9px;justify-content:center;margin-top:18px}
-  .dot{width:9px;height:9px;border-radius:50%;border:none;background:#2b333833;cursor:pointer;padding:0;transition:.2s}
-  .dot.is-active{background:var(--blue-deep);transform:scale(1.25)}
+  /* Slideshow — full-bleed auto-scrolling filmstrip */
+  .marquee{margin-top:48px;overflow:hidden;width:100%;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+  .marquee-track{display:flex;gap:20px;width:max-content;animation:slide 60s linear infinite}
+  .marquee:hover .marquee-track{animation-play-state:paused}
+  .marquee img{height:360px;width:auto;flex:none;border-radius:14px;object-fit:cover}
+  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 10px))}}
+  @media(max-width:600px){.marquee img{height:230px}}
+  @media(prefers-reduced-motion:reduce){
+    .marquee{overflow-x:auto;-webkit-overflow-scrolling:touch}
+    .marquee-track{animation:none}
+  }
 
   /* Location */
   .studio{background:var(--sand)}
@@ -216,24 +217,30 @@
   </div>
 </section>
 
-<!-- SLIDESHOW -->
-<section>
-  <div class="wrap">
-    <div class="center">
-      <span class="eyebrow">Life at Body Grace</span>
-      <h2 style="margin-top:14px">Real classes. Real people.</h2>
+<!-- SLIDESHOW — full-bleed auto-scrolling filmstrip -->
+<section style="overflow:hidden">
+  <div class="wrap center">
+    <span class="eyebrow">Life at Body Grace</span>
+    <h2 style="margin-top:14px">Real classes. Real people.</h2>
+  </div>
+  <div class="marquee" aria-label="Photos from Body Grace">
+    <div class="marquee-track">
+      <img src="images/p17.jpg" alt="A full yoga class moving together">
+      <img src="images/p08.jpg" alt="All-levels yoga class in the sunlit studio">
+      <img src="images/p19.jpg" alt="Students folding forward on their mats">
+      <img src="images/p06.jpg" alt="Restorative class with bolsters">
+      <img src="images/p04.jpg" alt="Outdoor fitness class">
+      <img src="images/p13.jpg" alt="Studio props and tree wall art">
+      <img src="images/p15.jpg" alt="Relaxation corner with the Wall of Babies">
+      <!-- duplicate set for a seamless loop -->
+      <img src="images/p17.jpg" alt="" aria-hidden="true">
+      <img src="images/p08.jpg" alt="" aria-hidden="true">
+      <img src="images/p19.jpg" alt="" aria-hidden="true">
+      <img src="images/p06.jpg" alt="" aria-hidden="true">
+      <img src="images/p04.jpg" alt="" aria-hidden="true">
+      <img src="images/p13.jpg" alt="" aria-hidden="true">
+      <img src="images/p15.jpg" alt="" aria-hidden="true">
     </div>
-    <div class="slideshow" id="slideshow" aria-label="Photos from Body Grace">
-      <figure class="slide is-active"><img src="images/p17.jpg" alt="A full yoga class moving together"><figcaption>Mindful movement, together</figcaption></figure>
-      <figure class="slide"><img src="images/p08.jpg" alt="All-levels yoga class"><figcaption>All-levels yoga in our sunlit studio</figcaption></figure>
-      <figure class="slide"><img src="images/p19.jpg" alt="Students folding forward on their mats"><figcaption>Room to breathe and reset</figcaption></figure>
-      <figure class="slide"><img src="images/p06.jpg" alt="Restorative class with bolsters"><figcaption>Restorative practice, fully supported</figcaption></figure>
-      <figure class="slide"><img src="images/p04.jpg" alt="Outdoor fitness class"><figcaption>Fresh air and good company, outdoors</figcaption></figure>
-      <figure class="slide"><img src="images/p15.jpg" alt="Relaxation corner with the Wall of Babies"><figcaption>A calm corner — and our Wall of Babies</figcaption></figure>
-      <button class="slide-btn prev" id="slidePrev" aria-label="Previous"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      <button class="slide-btn next" id="slideNext" aria-label="Next"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-    </div>
-    <div class="dots" id="slideDots"></div>
   </div>
 </section>
 
@@ -321,22 +328,6 @@
   var hb=document.getElementById('hamburger'),nl=document.getElementById('navLinks');
   hb.addEventListener('click',function(){var o=nl.classList.toggle('open');hb.setAttribute('aria-expanded',o);});
   nl.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nl.classList.remove('open');});});
-
-  (function(){
-    var root=document.getElementById('slideshow');
-    var slides=[].slice.call(root.querySelectorAll('.slide'));
-    var dotsWrap=document.getElementById('slideDots');
-    var i=0,timer=null,reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-    slides.forEach(function(s,idx){var d=document.createElement('button');d.className='dot'+(idx===0?' is-active':'');d.setAttribute('aria-label','Photo '+(idx+1));d.addEventListener('click',function(){go(idx);reset();});dotsWrap.appendChild(d);});
-    var dots=[].slice.call(dotsWrap.children);
-    function go(n){slides[i].classList.remove('is-active');dots[i].classList.remove('is-active');i=(n+slides.length)%slides.length;slides[i].classList.add('is-active');dots[i].classList.add('is-active');}
-    function reset(){if(timer)clearInterval(timer);if(!reduce)timer=setInterval(function(){go(i+1);},5000);}
-    document.getElementById('slideNext').addEventListener('click',function(){go(i+1);reset();});
-    document.getElementById('slidePrev').addEventListener('click',function(){go(i-1);reset();});
-    root.addEventListener('mouseenter',function(){if(timer)clearInterval(timer);});
-    root.addEventListener('mouseleave',reset);
-    reset();
-  })();
 </script>
 </body>
 </html>
