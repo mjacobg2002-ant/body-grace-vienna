@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Body Grace Fitness & Yoga — Yoga & Wellness in Vienna, VA</title>
 <meta name="description" content="A welcoming yoga and fitness community in the heart of Vienna, Virginia. Yoga, strength, Tai Chi, and mindful movement for every age and ability. All are welcome.">
-<meta name="theme-color" content="#41606b">
+<meta name="theme-color" content="#3c5761">
 <link rel="canonical" href="https://bodygrace.com/">
 <link rel="icon" href="images/logo.jpg">
 
@@ -16,151 +16,204 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
   :root{
-    --cream:#faf6ef;
-    --sand:#efe7d9;
-    --ink:#2b3338;
-    --muted:#5f6a70;
-    --blue:#9bb9c3;        /* her logo color */
-    --blue-deep:#41606b;
-    --clay:#c98a63;
-    --line:#0000001a;
-    --shadow:0 18px 50px -24px #2b333855;
+    --cream:#f7f2e8;
+    --cream-2:#f1eadc;
+    --sand:#eae0cf;
+    --ink:#232a2c;
+    --muted:#616b6d;
+    --blue:#9bb9c3;
+    --blue-deep:#3c5761;
+    --blue-ink:#2c434b;
+    --clay:#bf7c52;
+    --clay-soft:#e2b491;
+    --line:#23292c1a;
+    --shadow-sm:0 8px 24px -14px #23292c66;
+    --shadow:0 30px 70px -34px #23292c80;
     --serif:"Fraunces",Georgia,serif;
     --sans:"Nunito Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    --ease:cubic-bezier(.22,.61,.36,1);
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.7;-webkit-font-smoothing:antialiased}
-  h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.1;letter-spacing:-.01em;margin:0}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  /* subtle paper grain for tactile depth */
+  body::before{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.035;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.06;letter-spacing:-.02em;margin:0}
   p{margin:0 0 1em}
   a{color:inherit;text-decoration:none}
   img{max-width:100%;display:block}
-  .wrap{max-width:1080px;margin:0 auto;padding:0 26px}
-  .eyebrow{text-transform:uppercase;letter-spacing:.24em;font-size:.72rem;font-weight:700;color:var(--clay)}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
 
-  .btn{display:inline-flex;align-items:center;gap:.5em;font-weight:700;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;padding:15px 30px;border-radius:100px;transition:transform .2s,background .2s;cursor:pointer;border:1.5px solid transparent}
-  .btn-primary{background:var(--blue-deep);color:#fff}
-  .btn-primary:hover{transform:translateY(-2px);background:#37525c}
-  .btn-light{background:#ffffff2b;color:#fff;border-color:#ffffff70;backdrop-filter:blur(4px)}
-  .btn-light:hover{background:#ffffff42}
+  .eyebrow{display:inline-flex;align-items:center;gap:12px;text-transform:uppercase;letter-spacing:.26em;font-size:.7rem;font-weight:800;color:var(--clay)}
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--clay);opacity:.6}
+  .center .eyebrow::after{content:"";width:26px;height:1px;background:var(--clay);opacity:.6}
+
+  .btn{position:relative;display:inline-flex;align-items:center;gap:.7em;font-weight:700;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;padding:16px 32px;border-radius:100px;cursor:pointer;border:1.5px solid transparent;transition:transform .3s var(--ease),background .3s,box-shadow .3s,color .3s}
+  .btn svg{transition:transform .3s var(--ease)}
+  .btn:hover svg{transform:translateX(4px)}
+  .btn-primary{background:var(--blue-deep);color:#fff;box-shadow:0 14px 34px -16px #3c5761cc}
+  .btn-primary:hover{transform:translateY(-3px);background:var(--blue-ink);box-shadow:0 22px 46px -18px #3c5761cc}
+  .btn-ghost{border-color:#23292c2e;color:var(--ink)}
+  .btn-ghost:hover{transform:translateY(-3px);border-color:var(--blue-deep);color:var(--blue-deep)}
+  .btn-light{background:#ffffff1f;color:#fff;border-color:#ffffff6b;backdrop-filter:blur(6px)}
+  .btn-light:hover{background:#ffffff36;transform:translateY(-3px)}
 
   /* Header */
-  header{position:sticky;top:0;z-index:50;background:#faf6efd0;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:80px}
-  .brand img{height:52px;width:auto;border-radius:8px}
-  .nav-links{display:flex;gap:32px}
-  .nav-links a{font-weight:600;font-size:.94rem}
-  .nav-links a:hover{color:var(--blue-deep)}
+  header{position:sticky;top:0;z-index:50;transition:background .4s,box-shadow .4s,height .4s}
+  header::after{content:"";position:absolute;inset:0;background:#f7f2e8cc;backdrop-filter:blur(14px);opacity:0;transition:opacity .4s;border-bottom:1px solid var(--line);z-index:-1}
+  header.scrolled::after{opacity:1}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:88px;transition:height .4s}
+  header.scrolled .nav{height:74px}
+  .brand img{height:54px;width:auto;border-radius:9px;transition:height .4s;box-shadow:0 6px 18px -12px #3c576188}
+  header.scrolled .brand img{height:46px}
+  .nav-links{display:flex;gap:36px}
+  .nav-links a{font-weight:600;font-size:.9rem;letter-spacing:.02em;position:relative;color:var(--ink)}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-7px;width:0;height:1.5px;background:var(--clay);transition:width .3s var(--ease)}
+  .nav-links a:hover::after{width:100%}
+  .nav .btn{padding:12px 26px}
   .hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px}
-  .hamburger span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0}
+  .hamburger span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;transition:.3s}
 
   /* Hero */
-  .hero{position:relative;min-height:82vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
-  .hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%}
-  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#2b333833,#2b333811 45%,#243138ee)}
-  .hero-inner{position:relative;z-index:2;padding:0 0 70px;max-width:660px}
-  .hero .badge{display:inline-block;background:#ffffff26;border:1px solid #ffffff5c;padding:7px 16px;border-radius:100px;font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:22px}
-  .hero h1{font-size:clamp(2.6rem,6vw,4.6rem);text-shadow:0 2px 30px #00000055}
-  .hero h1 em{font-style:italic;color:#e6bfa2}
-  .hero p{font-size:1.15rem;max-width:500px;margin:20px 0 30px;color:#f3eee5}
+  .hero{position:relative;min-height:94vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;margin-top:-88px;padding-top:88px}
+  .hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 38%;transform:scale(1.06);animation:heroZoom 14s var(--ease) forwards}
+  @keyframes heroZoom{to{transform:scale(1)}}
+  .hero::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,#2c434b66 0%,#2c434b1f 34%,#22333bd9 82%,#1e2f36 100%),
+              radial-gradient(120% 80% at 20% 100%,#2c434b73,transparent 60%)}
+  .hero-inner{position:relative;z-index:3;padding-bottom:88px;max-width:720px}
+  .hero .kicker{display:inline-flex;align-items:center;gap:10px;font-size:.72rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:#f3e7d8;margin-bottom:26px;opacity:0;animation:rise .9s var(--ease) .2s forwards}
+  .hero .kicker span{width:30px;height:1px;background:#e2b491}
+  .hero h1{font-size:clamp(2.9rem,6.6vw,5.4rem);font-weight:300;letter-spacing:-.025em;text-shadow:0 4px 40px #0000005e;opacity:0;animation:rise 1s var(--ease) .34s forwards}
+  .hero h1 em{font-style:italic;font-weight:400;color:#e6c5a4}
+  .hero .sub{font-size:1.18rem;max-width:480px;margin:24px 0 34px;color:#f1ebe1;opacity:0;animation:rise 1s var(--ease) .5s forwards}
+  .hero-cta{display:flex;gap:16px;flex-wrap:wrap;opacity:0;animation:rise 1s var(--ease) .64s forwards}
+  @keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+  .hero .meta{position:absolute;right:28px;bottom:40px;z-index:3;text-align:right;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#ffffffbb;font-weight:700;line-height:2}
+  @media(max-width:760px){.hero .meta{display:none}}
 
-  section{padding:96px 0}
-  .center{text-align:center;max-width:620px;margin:0 auto}
-  h2{font-size:clamp(2rem,4vw,2.8rem)}
-  .lead{font-size:1.2rem;color:var(--muted)}
+  section{padding:120px 0;position:relative}
+  .center{text-align:center;max-width:640px;margin:0 auto}
+  h2{font-size:clamp(2.1rem,4.4vw,3.3rem);font-weight:400}
+  .lead{font-size:1.22rem;line-height:1.65;color:var(--muted)}
+
+  /* Reveal */
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
 
   /* Intro */
   .intro{text-align:center}
-  .intro .tags{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:30px}
-  .intro .tags span{background:var(--sand);border:1px solid var(--line);padding:9px 18px;border-radius:100px;font-size:.9rem;font-weight:600;color:var(--blue-deep)}
+  .intro .divider{width:1px;height:56px;background:linear-gradient(#0000,var(--clay),#0000);margin:0 auto 30px}
+  .intro h2{margin:16px 0 20px}
+  .intro .tags{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:34px}
+  .intro .tags span{background:#fff;border:1px solid var(--line);padding:11px 22px;border-radius:100px;font-size:.9rem;font-weight:600;color:var(--blue-deep);box-shadow:var(--shadow-sm);transition:transform .3s var(--ease),box-shadow .3s}
+  .intro .tags span:hover{transform:translateY(-3px)}
+
+  /* Framed image treatment (premium offset frame) */
+  .framed{position:relative}
+  .framed::before{content:"";position:absolute;inset:0;transform:translate(18px,18px);border:1.5px solid var(--blue);border-radius:16px;z-index:0;transition:transform .5s var(--ease)}
+  .framed:hover::before{transform:translate(12px,12px)}
+  .framed img{position:relative;z-index:1;border-radius:16px;box-shadow:var(--shadow)}
 
   /* Paula */
-  .paula{background:var(--sand)}
-  .paula .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:center}
-  .paula .photo{position:relative}
-  .paula .photo img{border-radius:16px;box-shadow:var(--shadow);width:100%;aspect-ratio:3/3.4;object-fit:cover;object-position:center 25%}
-  .paula .photo .tag{position:absolute;bottom:-16px;left:-16px;background:var(--cream);padding:14px 20px;border-radius:12px;box-shadow:var(--shadow)}
-  .paula .photo .tag b{font-family:var(--serif);color:var(--blue-deep);display:block}
-  .paula .photo .tag span{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--clay);font-weight:700}
-  .paula .pull{font-family:var(--serif);font-style:italic;font-size:1.35rem;color:var(--blue-deep);margin-top:22px}
+  .paula{background:var(--cream-2)}
+  .paula .wrap{display:grid;grid-template-columns:.82fr 1.18fr;gap:76px;align-items:center}
+  .paula .photo img{width:100%;aspect-ratio:3/3.5;object-fit:cover;object-position:center 22%}
+  .paula .tag{position:absolute;z-index:2;bottom:-18px;left:-18px;background:var(--cream);padding:15px 22px;border-radius:12px;box-shadow:var(--shadow-sm);border:1px solid var(--line)}
+  .paula .tag b{font-family:var(--serif);font-size:1.1rem;color:var(--blue-deep);display:block}
+  .paula .tag span{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--clay);font-weight:800}
+  .paula h2{margin:16px 0 22px}
+  .paula .pull{font-family:var(--serif);font-style:italic;font-weight:300;font-size:1.5rem;line-height:1.4;color:var(--blue-deep);border-left:2px solid var(--clay);padding-left:22px;margin-top:26px}
 
   /* Slideshow — full-bleed auto-scrolling filmstrip */
-  .marquee{margin-top:48px;overflow:hidden;width:100%;
-    -webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
-    mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
-  .marquee-track{display:flex;gap:20px;width:max-content;animation:slide 60s linear infinite}
+  .showcase{padding-bottom:120px}
+  .marquee{margin-top:54px;overflow:hidden;width:100%;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+  .marquee-track{display:flex;gap:22px;width:max-content;animation:slide 64s linear infinite}
   .marquee:hover .marquee-track{animation-play-state:paused}
-  .marquee img{height:360px;width:auto;flex:none;border-radius:14px;object-fit:cover}
-  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 10px))}}
-  @media(max-width:600px){.marquee img{height:230px}}
-  @media(prefers-reduced-motion:reduce){
-    .marquee{overflow-x:auto;-webkit-overflow-scrolling:touch}
-    .marquee-track{animation:none}
-  }
+  .marquee img{height:380px;width:auto;flex:none;border-radius:16px;object-fit:cover;box-shadow:var(--shadow-sm);transition:transform .5s var(--ease)}
+  .marquee img:hover{transform:scale(1.03) translateY(-4px)}
+  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 11px))}}
+  @media(max-width:600px){.marquee img{height:240px}}
+  @media(prefers-reduced-motion:reduce){.marquee{overflow-x:auto}.marquee-track{animation:none}}
 
   /* Location */
-  .studio{background:var(--sand)}
-  .studio .wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-  .studio ul{list-style:none;padding:0;margin:22px 0 28px;display:grid;gap:12px}
-  .studio li{display:flex;gap:12px;align-items:center;font-weight:600}
-  .studio li svg{flex:none;color:var(--clay)}
-  .studio .media{position:relative}
-  .studio .media .building{border-radius:16px;box-shadow:var(--shadow);width:100%;aspect-ratio:3/3.3;object-fit:cover}
-  .studio .directory{position:absolute;bottom:-22px;left:-22px;width:52%;background:#fff;border-radius:12px;padding:8px;box-shadow:var(--shadow)}
+  .studio{background:var(--blue-ink);color:#eef4f5}
+  .studio .eyebrow{color:var(--clay-soft)}.studio .eyebrow::before{background:var(--clay-soft)}
+  .studio .wrap{display:grid;grid-template-columns:1fr 1fr;gap:76px;align-items:center}
+  .studio h2{color:#fff;margin:16px 0 14px}
+  .studio .lead{color:#c9d7da}
+  .studio ul{list-style:none;padding:0;margin:26px 0 30px;display:grid;gap:15px}
+  .studio li{display:flex;gap:14px;align-items:center;font-weight:600;color:#e5eeef}
+  .studio li svg{flex:none;color:var(--clay-soft)}
+  .studio .addr{color:#a9bcc0;font-size:.98rem}
+  .studio .framed::before{border-color:var(--blue)}
+  .studio .media .building{width:100%;aspect-ratio:3/3.3;object-fit:cover}
+  .studio .directory{position:absolute;z-index:2;bottom:-22px;left:-22px;width:52%;background:#fff;border-radius:12px;padding:9px;box-shadow:var(--shadow)}
   .studio .directory img{border-radius:7px;width:100%}
-  .studio .directory .cap{font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-deep);text-align:center;padding:8px 4px 4px}
+  .studio .directory .cap{font-size:.64rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-deep);text-align:center;padding:8px 4px 4px}
 
   /* Booking */
-  .book{background:var(--blue-deep);color:#eef3f4;text-align:center}
-  .book h2{color:#fff}
-  .book p{color:#cfdde1}
-  .book .frame{background:var(--cream);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);margin-top:36px}
+  .book{background:var(--cream-2);text-align:center}
+  .book .frame{max-width:900px;margin:44px auto 0;background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
   .book .frame iframe{width:100%;min-height:800px;border:0;display:block}
-  .book .placeholder{padding:60px 26px;color:var(--muted)}
-  .book .placeholder h3{color:var(--blue-deep);font-size:1.5rem;margin-bottom:12px}
+  .book .placeholder{padding:66px 30px;color:var(--muted)}
+  .book .placeholder h3{font-family:var(--serif);color:var(--blue-deep);font-size:1.7rem;margin-bottom:14px;font-weight:400}
   .book .placeholder code{background:var(--sand);padding:2px 8px;border-radius:6px;font-size:.85rem;color:var(--blue-deep)}
-  .book .contact{margin-top:22px;font-size:.95rem;color:#cfdde1}
-  .book .contact a{color:#e6bfa2;font-weight:700}
+  .book .contact{margin-top:26px;font-size:.98rem;color:var(--muted)}
+  .book .contact a{color:var(--blue-deep);font-weight:700}
+
+  /* Closing */
+  .closing{background:var(--blue-deep);color:#eef4f5;text-align:center}
+  .closing h2{color:#fff;font-weight:300;font-size:clamp(2.4rem,5.5vw,4rem)}
+  .closing h2 em{font-style:italic;color:#e6c5a4}
+  .closing p{max-width:500px;margin:22px auto 34px;color:#cdd9db;font-size:1.15rem}
+  .closing .addr{margin-top:40px;font-size:.95rem;color:#a9bcc0;line-height:1.9;letter-spacing:.02em}
+  .closing .addr a{color:var(--clay-soft);font-weight:700}
 
   /* Footer */
-  footer{background:#233842;color:#a9bbc0;padding:54px 0 34px;font-size:.92rem}
-  .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;align-items:flex-start}
-  .foot img{height:56px;border-radius:8px;margin-bottom:12px}
-  .foot .col a{display:block;margin-bottom:8px;color:#a9bbc0}
-  .foot .col a:hover{color:#e6bfa2}
-  .foot h4{color:#eef3f4;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;margin:0 0 14px}
-  .foot-bottom{border-top:1px solid #ffffff1a;margin-top:36px;padding-top:22px;font-size:.82rem;color:#7d9198}
+  footer{background:var(--blue-ink);color:#9fb3b7;padding:56px 0 36px;font-size:.92rem;border-top:1px solid #ffffff12}
+  .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:34px;align-items:flex-start}
+  .foot img{height:56px;border-radius:8px;margin-bottom:14px}
+  .foot .col a{display:block;margin-bottom:9px;color:#9fb3b7}
+  .foot .col a:hover{color:var(--clay-soft)}
+  .foot h4{color:#eef4f5;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 15px;font-weight:800}
+  .foot-bottom{border-top:1px solid #ffffff14;margin-top:40px;padding-top:24px;font-size:.8rem;color:#728a8f;letter-spacing:.03em}
 
-  .mobile-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:60;background:var(--blue-deep);padding:12px 16px}
+  .mobile-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:60;background:var(--blue-deep);padding:12px 16px;box-shadow:0 -8px 26px #0000002e}
   .mobile-cta .btn{width:100%;justify-content:center}
 
   @media(max-width:860px){
-    .paula .wrap,.studio .wrap{grid-template-columns:1fr;gap:40px}
-    .paula .photo,.studio .media{order:-1;max-width:420px}
+    .paula .wrap,.studio .wrap{grid-template-columns:1fr;gap:56px}
+    .paula .photo,.studio .media{order:-1;max-width:440px;margin:0 auto}
+    .framed::before{transform:translate(14px,14px)}
   }
   @media(max-width:600px){
     body{font-size:17px}
-    .nav-links{display:none;position:absolute;top:80px;left:0;right:0;background:var(--cream);flex-direction:column;padding:20px 26px;gap:18px;border-bottom:1px solid var(--line)}
+    .nav-links{display:none;position:absolute;top:74px;left:0;right:0;background:var(--cream);flex-direction:column;padding:24px 28px;gap:20px;border-bottom:1px solid var(--line);box-shadow:var(--shadow-sm)}
     .nav-links.open{display:flex}
-    .nav .btn{display:none}
+    .nav>.btn{display:none}
     .hamburger{display:block}
-    section{padding:66px 0}
-    .studio .directory{position:static;width:100%;margin-top:14px}
+    .hero{min-height:88vh}
+    section{padding:76px 0}
+    .studio .directory{position:static;width:100%;margin-top:16px}
     .mobile-cta{display:block}
-    footer{padding-bottom:88px}
+    footer{padding-bottom:90px}
   }
-  @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}.hero img.bg{transform:none}}
   :focus-visible{outline:3px solid var(--clay);outline-offset:3px}
 </style>
 </head>
 <body>
 
 <!-- HEADER -->
-<header>
+<header id="hdr">
   <div class="wrap nav">
     <a href="#top" class="brand" aria-label="Body Grace home"><img src="images/logo.jpg" alt="Body Grace Fitness & Yoga"></a>
     <nav class="nav-links" id="navLinks">
@@ -169,7 +222,7 @@
       <a href="#studio">Location</a>
       <a href="#book">Book</a>
     </nav>
-    <a class="btn btn-primary" href="#book">Book a Class</a>
+    <a class="btn btn-primary" href="#book">Book a Class <svg width="14" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h13M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -177,22 +230,27 @@
 <!-- HERO -->
 <section class="hero" id="top">
   <img class="bg" src="images/p08.jpg" alt="Women in a yoga class at Body Grace in Vienna, Virginia" fetchpriority="high">
+  <div class="meta">Est. 2001<br>Vienna · Virginia</div>
   <div class="wrap">
     <div class="hero-inner">
-      <span class="badge">All Are Welcome</span>
-      <h1>Wellness that feels like <em>coming home.</em></h1>
-      <p>Yoga, strength, and mindful movement in the heart of Vienna, Virginia.</p>
-      <a class="btn btn-primary" href="#book">Book a Class</a>
+      <span class="kicker"><span></span>All Are Welcome</span>
+      <h1>Wellness that feels<br>like <em>coming home.</em></h1>
+      <p class="sub">Yoga, strength, and mindful movement in the heart of Vienna, Virginia.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#book">Book a Class <svg width="14" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h13M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="btn btn-light" href="#story">Meet Body Grace</a>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- INTRO -->
 <section class="intro" id="offer">
-  <div class="wrap">
+  <div class="wrap reveal">
+    <div class="divider"></div>
     <span class="eyebrow">More Than a Workout</span>
-    <h2 style="margin:14px 0 18px">A place to move, breathe &amp; belong.</h2>
-    <p class="lead">Body Grace brings together people of every age, ability, and experience level in a warm, welcoming studio — growing a foundation of health and well-being since 2001.</p>
+    <h2>A place to move,<br>breathe &amp; belong.</h2>
+    <p class="lead" style="margin:0 auto;max-width:600px">Body Grace brings together people of every age, ability, and experience level in a warm, welcoming studio — growing a foundation of health and well-being since 2001.</p>
     <div class="tags">
       <span>Yoga</span><span>Strength &amp; Kettlebell</span><span>Tai Chi</span><span>Prenatal</span><span>Pilates</span><span>Outdoor Fitness</span>
     </div>
@@ -202,13 +260,13 @@
 <!-- PAULA -->
 <section class="paula" id="story">
   <div class="wrap">
-    <div class="photo">
+    <div class="photo framed reveal">
       <img src="images/p10.jpg" alt="Paula McGinnis in the Body Grace studio">
       <div class="tag"><b>Paula McGinnis</b><span>Owner</span></div>
     </div>
-    <div>
+    <div class="reveal">
       <span class="eyebrow">Our Story</span>
-      <h2 style="margin:14px 0 18px">Meet Paula.</h2>
+      <h2>Meet Paula.</h2>
       <p class="lead">Paula came to yoga after nearly twenty years of running and coaching — and stayed for what it gave back to her.</p>
       <p style="color:var(--muted)">In 2019, when Body Grace was at risk of closing, she and her husband Michael chose to keep this community going. They took over the studio — not as a business, but as a place worth protecting.</p>
       <p class="pull">Her philosophy is simple: you are welcome here.</p>
@@ -216,24 +274,23 @@
   </div>
 </section>
 
-<!-- SLIDESHOW — full-bleed auto-scrolling filmstrip -->
-<section style="overflow:hidden">
-  <div class="wrap center">
+<!-- SLIDESHOW -->
+<section class="showcase" style="overflow:hidden">
+  <div class="wrap center reveal">
     <span class="eyebrow">Life at Body Grace</span>
-    <h2 style="margin-top:14px">Real classes. Real people.</h2>
+    <h2 style="margin-top:16px">Real classes. Real people.</h2>
   </div>
   <div class="marquee" aria-label="Photos from Body Grace">
     <div class="marquee-track">
-      <img src="images/p08.jpg" alt="A full yoga class moving together">
       <img src="images/p08.jpg" alt="All-levels yoga class in the sunlit studio">
+      <img src="images/p17.jpg" alt="A full yoga class moving together">
       <img src="images/p19.jpg" alt="Students folding forward on their mats">
       <img src="images/p06.jpg" alt="Restorative class with bolsters">
       <img src="images/p04.jpg" alt="Outdoor fitness class">
       <img src="images/p13.jpg" alt="Studio props and tree wall art">
       <img src="images/p15.jpg" alt="Relaxation corner with the Wall of Babies">
-      <!-- duplicate set for a seamless loop -->
       <img src="images/p08.jpg" alt="" aria-hidden="true">
-      <img src="images/p08.jpg" alt="" aria-hidden="true">
+      <img src="images/p17.jpg" alt="" aria-hidden="true">
       <img src="images/p19.jpg" alt="" aria-hidden="true">
       <img src="images/p06.jpg" alt="" aria-hidden="true">
       <img src="images/p04.jpg" alt="" aria-hidden="true">
@@ -246,18 +303,18 @@
 <!-- LOCATION -->
 <section class="studio" id="studio">
   <div class="wrap">
-    <div>
+    <div class="reveal">
       <span class="eyebrow">Find Us</span>
-      <h2 style="margin:14px 0 12px">Our new home in Vienna.</h2>
+      <h2>Our new home<br>in Vienna.</h2>
       <p class="lead">This spring we moved into the Vienna Professional Center — the same warm community, with more room to move.</p>
       <ul>
         <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 21V9l9-6 9 6v12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 21v-6h6v6" stroke="currentColor" stroke-width="2"/></svg> Third floor, Suite 300 — above Bear Branch Tavern</li>
         <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="16" height="18" rx="2" stroke="currentColor" stroke-width="2"/><path d="M9 8l3-3 3 3M9 16l3 3 3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Elevator access &amp; more parking</li>
       </ul>
-      <p style="color:var(--muted)">133 Maple Avenue E, Suite 300 · Vienna, VA 22180</p>
-      <a class="btn btn-primary" href="https://maps.google.com/?q=133+Maple+Avenue+E+Suite+300+Vienna+VA+22180" target="_blank" rel="noopener">Get Directions</a>
+      <p class="addr">133 Maple Avenue E, Suite 300 · Vienna, VA 22180</p>
+      <a class="btn btn-light" style="margin-top:18px" href="https://maps.google.com/?q=133+Maple+Avenue+E+Suite+300+Vienna+VA+22180" target="_blank" rel="noopener">Get Directions <svg width="14" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h13M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
-    <div class="media">
+    <div class="media framed reveal">
       <img class="building" src="images/p09.jpg" alt="The Bear Branch Building in Vienna — Body Grace is on the top floor">
       <div class="directory">
         <img src="images/p14.jpg" alt="Lobby directory: Body Grace Fitness and Yoga, Third Floor, Suite 300">
@@ -275,19 +332,30 @@
   <script src="https://embed.acuityscheduling.com/js/embed.js" type="text/javascript"><\/script>
 -->
 <section class="book" id="book">
-  <div class="wrap">
-    <span class="eyebrow" style="color:#e6bfa2">Reserve Your Spot</span>
-    <h2 style="margin:14px 0 12px">Book a class in seconds.</h2>
-    <p>Browse the schedule and reserve online — powered by Acuity, the same booking Body Grace already uses.</p>
+  <div class="wrap reveal">
+    <span class="eyebrow">Reserve Your Spot</span>
+    <h2 style="margin-top:16px">Book a class in seconds.</h2>
+    <p class="lead" style="margin:14px auto 0;max-width:560px">Browse the schedule and reserve online — powered by Acuity, the same booking Body Grace already uses.</p>
     <div class="frame">
       <div class="placeholder">
-        <h3>Acuity Scheduler Embeds Here</h3>
-        <p>In the live site, the real-time class calendar loads right here so students can book instantly.</p>
+        <h3>Your live class calendar appears here</h3>
+        <p>Students pick a class, time, and instructor and book instantly.</p>
         <p style="margin-top:10px">Connect by adding the studio's Acuity <code>owner</code> ID in <code>index.html</code>.</p>
-        <p style="margin-top:22px"><a class="btn btn-primary" href="https://bodygrace.com/register-for-classes" target="_blank" rel="noopener">See Current Registration</a></p>
+        <p style="margin-top:24px"><a class="btn btn-primary" href="https://bodygrace.com/register-for-classes" target="_blank" rel="noopener">See Current Registration</a></p>
       </div>
     </div>
     <p class="contact">Prefer to talk first? Call <a href="tel:+17032983903">703-298-3903</a> or email <a href="mailto:bodygrace@verizon.net">bodygrace@verizon.net</a>.</p>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="closing">
+  <div class="wrap reveal">
+    <span class="eyebrow" style="color:var(--clay-soft)">Come Say Hello</span>
+    <h2 style="margin-top:16px">There's a place<br>for you <em>here.</em></h2>
+    <p>Come move, breathe, strengthen, and connect with us in Vienna.</p>
+    <a class="btn btn-light" href="#book">Book a Class <svg width="14" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h13M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <div class="addr">133 Maple Avenue E, Suite 300 · Vienna, VA 22180<br><a href="tel:+17032983903">703-298-3903</a> · <a href="mailto:bodygrace@verizon.net">bodygrace@verizon.net</a></div>
   </div>
 </section>
 
@@ -324,9 +392,18 @@
 
 <script>
   document.getElementById('yr').textContent=new Date().getFullYear();
+  var hdr=document.getElementById('hdr');
+  var onScroll=function(){hdr.classList.toggle('scrolled',window.scrollY>20);};
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+
   var hb=document.getElementById('hamburger'),nl=document.getElementById('navLinks');
   hb.addEventListener('click',function(){var o=nl.classList.toggle('open');hb.setAttribute('aria-expanded',o);});
   nl.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nl.classList.remove('open');});});
+
+  if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.14});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  }else{document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});}
 </script>
 </body>
 </html>
