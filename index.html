@@ -63,27 +63,23 @@
   .btn-light{background:#ffffff1f;color:#fff;border-color:#ffffff6b;backdrop-filter:blur(6px)}
   .btn-light:hover{background:#ffffff36;transform:translateY(-3px)}
 
-  /* Header */
-  header{position:sticky;top:0;z-index:50;transition:background .4s,box-shadow .4s,height .4s}
-  header::after{content:"";position:absolute;inset:0;background:#f7f2e8cc;backdrop-filter:blur(14px);opacity:0;transition:opacity .4s;border-bottom:1px solid var(--line);z-index:-1}
-  header.scrolled::after{opacity:1}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:88px;transition:height .4s}
-  header.scrolled .nav{height:74px}
-  .brand img{height:54px;width:auto;border-radius:9px;transition:height .4s;box-shadow:0 6px 18px -12px #3c576188}
-  header.scrolled .brand img{height:46px}
+  /* Header — dusty-blue bar matching the logo background so the logo blends in seamlessly */
+  header{position:sticky;top:0;z-index:50;background:var(--blue);transition:box-shadow .4s,height .4s}
+  header.scrolled{box-shadow:0 12px 30px -20px #23292cbb}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:94px;transition:height .4s}
+  header.scrolled .nav{height:78px}
+  .brand img{height:62px;width:auto;display:block;transition:height .4s}
+  header.scrolled .brand img{height:52px}
   .nav-links{display:flex;gap:36px}
-  /* at top: transparent over hero -> light links; after scroll -> dark on frosted bg */
-  .nav-links a{font-weight:600;font-size:.9rem;letter-spacing:.02em;position:relative;color:#fff;text-shadow:0 1px 10px #0000004d;transition:color .4s}
-  header.scrolled .nav-links a{color:var(--ink);text-shadow:none}
-  .nav-links a::after{content:"";position:absolute;left:0;bottom:-7px;width:0;height:1.5px;background:var(--clay);transition:width .3s var(--ease)}
+  .nav-links a{font-weight:700;font-size:.9rem;letter-spacing:.02em;position:relative;color:var(--ink)}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-7px;width:0;height:1.5px;background:var(--blue-ink);transition:width .3s var(--ease)}
   .nav-links a:hover::after{width:100%}
   .nav .btn{padding:12px 26px}
   .hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px}
-  .hamburger span{display:block;width:24px;height:2px;background:#fff;margin:5px 0;transition:.3s}
-  header.scrolled .hamburger span{background:var(--ink)}
+  .hamburger span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;transition:.3s}
 
   /* Hero */
-  .hero{position:relative;min-height:94vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;margin-top:-88px;padding-top:88px}
+  .hero{position:relative;min-height:84vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
   .hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 38%;transform:scale(1.06);animation:heroZoom 14s var(--ease) forwards}
   @keyframes heroZoom{to{transform:scale(1)}}
   .hero::after{content:"";position:absolute;inset:0;
@@ -199,9 +195,9 @@
   }
   @media(max-width:600px){
     body{font-size:17px}
-    .nav-links{display:none;position:absolute;top:74px;left:0;right:0;background:var(--cream);flex-direction:column;padding:24px 28px;gap:20px;border-bottom:1px solid var(--line);box-shadow:var(--shadow-sm)}
+    .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--blue);flex-direction:column;padding:22px 28px;gap:20px;box-shadow:0 18px 30px -20px #23292cbb}
     .nav-links.open{display:flex}
-    .nav-links.open a{color:var(--ink);text-shadow:none}
+    .nav-links.open a{color:var(--ink)}
     .nav>.btn{display:none}
     .hamburger{display:block}
     .hero{min-height:88vh}
