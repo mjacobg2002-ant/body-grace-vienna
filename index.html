@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Body Grace Fitness & Yoga — Yoga & Wellness in Vienna, VA</title>
 <meta name="description" content="A welcoming yoga and fitness community in the heart of Vienna, Virginia. Yoga, strength, Tai Chi, and mindful movement for every age and ability. All are welcome.">
-<meta name="theme-color" content="#3c5761">
+<meta name="theme-color" content="#9bb9c3">
 <link rel="canonical" href="https://bodygrace.com/">
 <link rel="icon" href="images/logo.jpg">
 
@@ -20,17 +20,18 @@
 
 <style>
   :root{
-    --cream:#f7f2e8;
-    --cream-2:#f1eadc;
-    --sand:#eae0cf;
-    --ink:#232a2c;
-    --muted:#616b6d;
-    --blue:#9bb9c3;
-    --blue-deep:#3c5761;
-    --blue-ink:#2c434b;
-    --clay:#bf7c52;
-    --clay-soft:#e2b491;
-    --line:#23292c1a;
+    /* palette coordinated around the logo's dusty blue (#9bb9c3) */
+    --cream:#f1f5f5;       /* cool off-white */
+    --cream-2:#e8f0f1;     /* soft blue-grey surface */
+    --sand:#dbe7e9;        /* light dusty-blue surface */
+    --ink:#25393f;         /* deep blue-charcoal text */
+    --muted:#5d7175;
+    --blue:#9bb9c3;        /* the logo color — nav bar */
+    --blue-deep:#3d5a64;   /* deep slate blue */
+    --blue-ink:#294049;    /* darkest slate */
+    --clay:#457079;        /* dusty-teal accent (in the same family) */
+    --clay-soft:#bcd4da;   /* light tint for dark backgrounds */
+    --line:#25393f1a;
     --shadow-sm:0 8px 24px -14px #23292c66;
     --shadow:0 30px 70px -34px #23292c80;
     --serif:"Fraunces",Georgia,serif;
@@ -86,11 +87,11 @@
     background:linear-gradient(180deg,#2c434b66 0%,#2c434b1f 34%,#22333bd9 82%,#1e2f36 100%),
               radial-gradient(120% 80% at 20% 100%,#2c434b73,transparent 60%)}
   .hero-inner{position:relative;z-index:3;padding-bottom:88px;max-width:720px}
-  .hero .kicker{display:inline-flex;align-items:center;gap:10px;font-size:.72rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:#f3e7d8;margin-bottom:26px;opacity:0;animation:rise .9s var(--ease) .2s forwards}
-  .hero .kicker span{width:30px;height:1px;background:#e2b491}
+  .hero .kicker{display:inline-flex;align-items:center;gap:10px;font-size:.72rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:#dcebed;margin-bottom:26px;opacity:0;animation:rise .9s var(--ease) .2s forwards}
+  .hero .kicker span{width:30px;height:1px;background:#bcd4da}
   .hero h1{font-size:clamp(2.9rem,6.6vw,5.4rem);font-weight:300;letter-spacing:-.025em;text-shadow:0 4px 40px #0000005e;opacity:0;animation:rise 1s var(--ease) .34s forwards}
-  .hero h1 em{font-style:italic;font-weight:400;color:#e6c5a4}
-  .hero .sub{font-size:1.18rem;max-width:480px;margin:24px 0 34px;color:#f1ebe1;opacity:0;animation:rise 1s var(--ease) .5s forwards}
+  .hero h1 em{font-style:italic;font-weight:400;color:#cfe2e6}
+  .hero .sub{font-size:1.18rem;max-width:480px;margin:24px 0 34px;color:#eef4f4;opacity:0;animation:rise 1s var(--ease) .5s forwards}
   .hero-cta{display:flex;gap:16px;flex-wrap:wrap;opacity:0;animation:rise 1s var(--ease) .64s forwards}
   @keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
   .hero .meta{position:absolute;right:28px;bottom:40px;z-index:3;text-align:right;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#ffffffbb;font-weight:700;line-height:2}
@@ -171,7 +172,7 @@
   /* Closing */
   .closing{background:var(--blue-deep);color:#eef4f5;text-align:center}
   .closing h2{color:#fff;font-weight:300;font-size:clamp(2.4rem,5.5vw,4rem)}
-  .closing h2 em{font-style:italic;color:#e6c5a4}
+  .closing h2 em{font-style:italic;color:#cfe2e6}
   .closing p{max-width:500px;margin:22px auto 34px;color:#cdd9db;font-size:1.15rem}
   .closing .addr{margin-top:40px;font-size:.95rem;color:#a9bcc0;line-height:1.9;letter-spacing:.02em}
   .closing .addr a{color:var(--clay-soft);font-weight:700}
